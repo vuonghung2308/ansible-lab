@@ -1,0 +1,4 @@
+---
+mariadb_image_name: mariadb:10.8.2
+mariadb_data_volume: mariadb_data
+mariadb_container_name: mariadb

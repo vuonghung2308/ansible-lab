@@ -1,0 +1,4 @@
+---
+app_repo_url: https://github.com/mmumshad/simple-webapp.git
+app_repo_branch: master
+python_image_name: python:2.7

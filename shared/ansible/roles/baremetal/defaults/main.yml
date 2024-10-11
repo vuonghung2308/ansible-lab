@@ -1,0 +1,7 @@
+---
+docker_apt_url: https://download.docker.com/linux/ubuntu
+pkg_install:
+  - docker-ce
+  - python3-pip
+  - vim
+  - git

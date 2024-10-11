@@ -1,0 +1,5 @@
+internal_interface: eth1
+mariadb_root_password: nomoresecure
+app_db_user: db_user
+app_db_password: Passw0rd
+app_database: employee_db

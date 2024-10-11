@@ -1,0 +1,14 @@
+---
+- name: Restart Mariadb container
+  ansible.builtin.docker_container:
+    name: "{{ mariadb_container_name }}"
+    image: "{{ mariadb_image_name }}"
+    env:
+      MARIADB_ROOT_PASSWORD: "{{ mariadb_root_password }}"
+    ports:
+      - "3306:3306"
+    volumes:
+      - "{{ mariadb_data_volume }}:/var/lib/mariadb"
+    restart_policy: always
+    state: started
+    restart: true

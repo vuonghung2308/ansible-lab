@@ -1,0 +1,11 @@
+FROM {{ python_image_name }}
+
+WORKDIR /app
+RUN pip install flask flask-mysql
+COPY . .
+
+EXPOSE 5000
+ENV FLASK_APP app.py
+{% set iface = 'ansible_' + internal_interface  %}
+ENV MYSQL_DATABASE_HOST {{ hostvars['db-server'][iface].ipv4.address }}
+CMD ["flask", "run", "--host=0.0.0.0"]

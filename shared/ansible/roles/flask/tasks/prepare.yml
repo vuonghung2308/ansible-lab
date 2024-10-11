@@ -1,0 +1,16 @@
+---
+- name: Clone the git repository
+  git:
+    repo: https://github.com/mmumshad/simple-webapp.git
+    dest: /home/vagrant/simple-webapp
+    version: master
+
+- name: Copy docker files
+  ansible.builtin.template:
+    src: Dockerfile.j2
+    dest: /home/vagrant/simple-webapp/Dockerfile
+
+- name: Pull python image
+  docker_image:
+    name: "{{ python_image_name }}"
+    source: pull

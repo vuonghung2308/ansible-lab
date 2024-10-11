@@ -1,0 +1,3 @@
+---
+- name: Include tasks based on action
+  ansible.builtin.include_tasks: "{{ action }}.yml"

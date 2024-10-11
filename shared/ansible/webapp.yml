@@ -1,0 +1,8 @@
+---
+- name: Apply task to gather facts
+  hosts: all
+
+- name: Apply role flask
+  hosts: web-server
+  roles:
+    - role: flask

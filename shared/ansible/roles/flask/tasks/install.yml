@@ -1,0 +1,18 @@
+---
+- name: Build a Flask web application
+  community.docker.docker_image:
+    name: simple-webapp
+    tag: latest
+    build:
+      path: /home/vagrant/simple-webapp
+      dockerfile: Dockerfile
+    source: build
+
+- name: Run the Flask web application
+  community.docker.docker_container:
+    name: simple-webapp
+    image: simple-webapp:latest
+    ports:
+      - "5000:5000"
+    state: started
+    restart: true

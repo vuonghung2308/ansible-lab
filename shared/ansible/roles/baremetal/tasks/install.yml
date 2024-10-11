@@ -1,0 +1,17 @@
+---
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+  become: true
+
+- name: Install required packages
+  ansible.builtin.apt:
+    name: "{{ (pkg_install | join(' ')).split() }}"
+    allow_unauthenticated: true
+    state: present
+  become: true
+
+- name: Install Docker SDK for Python
+  ansible.builtin.pip:
+    name: docker
+    state: present

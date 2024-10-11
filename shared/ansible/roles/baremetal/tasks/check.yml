@@ -1,0 +1,10 @@
+---
+- name: Check if required packages is installed
+  ansible.builtin.command: "{{ item }} --version"
+  register: result
+  failed_when: result.rc != 0
+  changed_when: false
+  loop: 
+    - docker
+    - python3
+    - vim

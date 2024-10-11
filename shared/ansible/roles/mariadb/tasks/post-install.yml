@@ -1,0 +1,12 @@
+---
+- name: Create database user for application
+  community.docker.docker_container_exec:
+    container: "{{ mariadb_container_name }}"
+    command: |
+      mysql -u root -p{{ mariadb_root_password }} -e "
+        CREATE DATABASE IF NOT EXISTS {{ app_database }};
+        GRANT ALL ON *.* to {{ app_db_user }}@'%' IDENTIFIED BY '{{ app_db_password }}';
+        USE {{ app_database }};
+        CREATE TABLE IF NOT EXISTS employees (name VARCHAR(20));
+        INSERT INTO employees VALUES ('JOHN');
+      "

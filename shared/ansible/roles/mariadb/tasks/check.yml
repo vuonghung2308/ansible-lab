@@ -1,0 +1,4 @@
+---
+- name: Check if mariadb container is running
+  ansible.builtin.docker_container_info:
+    name: "{{ mariadb_container_name }}"

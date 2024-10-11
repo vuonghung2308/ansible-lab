@@ -1,0 +1,5 @@
+---
+- name: Apply role mariadb
+  hosts: db-server
+  roles:
+    - role: mariadb

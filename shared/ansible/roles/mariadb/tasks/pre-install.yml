@@ -1,0 +1,10 @@
+---
+- name: Create volume data for MariaDB
+  ansible.builtin.docker_volume:
+    name: "{{ mariadb_data_volume }}"
+    state: present
+
+- name: Pull MariaDB image
+  ansible.builtin.docker_image:
+    name: "{{ mariadb_image_name }}"
+    source: pull
